@@ -20,12 +20,12 @@
 			<div class="col-lg-auto mt-3">
 				<span class="align-bottom">
 					<h3>Gimme about
-						<select v-model="numberOfParagraphs">
+						<select v-model="numberOfPounds">
 							<option>1</option>
 							<option>3</option>
 							<option>5</option>
 						</select>
-						pounds of bacon
+						{{ poundText }} of bacon
 					</h3>
 					<p>
 						<button type="button" class="btn btn-primary" @click="makeTheBacon">Make the Bacon!</button>
@@ -51,7 +51,7 @@
 		const app = new Vue({
 			el: "#app",
 			data: {
-				numberOfParagraphs: 3,
+				numberOfPounds: 3,
 				paragraphs: [],
 				copied: false
 			},
@@ -61,12 +61,15 @@
 				},
 				hazBacon: function() {
 					return this.paragraphs.length > 0;
+				},
+				poundText: function() {
+					return this.numberOfPounds == 1 ? "pound" : "pounds";
 				}
 			},
 			methods: {
 				makeTheBacon: function() {
 					return axios
-						.get( "/api/bacon/" + this.numberOfParagraphs )
+						.get( "/api/bacon/" + this.numberOfPounds )
 						.then( res => ( this.paragraphs = res.data.paragraphs ) )
 				},
 				baconCopied: function() {
