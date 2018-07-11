@@ -10,8 +10,8 @@
   "keywords": [],
   "author": "David Neal <david@reverentgeek.com> (http://reverentgeek.com)",
   "repository": {
-	  "type": "git",
-	  "url": "https://github.com/reverentgeek/bacon-node-generator.git"
+    "type": "git",
+    "url": "https://github.com/reverentgeek/node-bacon-generator.git"
   },
   "license": "MIT",
   "dependencies": {
