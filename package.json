@@ -14,6 +14,9 @@
     "url": "https://github.com/reverentgeek/node-bacon-generator.git"
   },
   "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
   "dependencies": {
     "boom": "^7.2.0",
     "fs-extra": "^6.0.1",
