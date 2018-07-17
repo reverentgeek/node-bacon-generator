@@ -2,9 +2,10 @@
 const bacon = require( "../bacon" );
 const joi = require( "joi" );
 const boom = require( "boom" );
+const MAX_POUNDS = 25;
 
 const schema = joi.object().keys( {
-	paragraphs: joi.number().integer().min( 1 ).max( 25 ).required()
+	paragraphs: joi.number().integer().min( 1 ).max( MAX_POUNDS ).required()
 } );
 
 module.exports = server => {

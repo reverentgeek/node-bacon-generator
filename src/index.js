@@ -20,7 +20,7 @@ async function start() {
 		// start the server
 		await server.start();
 	} catch ( err ) {
-		process.exit( 1 );
+		process.exit( 1 ); // eslint-disable-line
 	}
 }
 
