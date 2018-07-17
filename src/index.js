@@ -1,8 +1,8 @@
 "use strict";
 
 const Hapi = require( "hapi" );
-const plugins = require( "./src/plugins" );
-const routes = require( "./src/routes" );
+const plugins = require( "./plugins" );
+const routes = require( "./routes" );
 const DEV_PORT = 8000;
 
 const server = Hapi.server( {
