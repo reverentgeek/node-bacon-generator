@@ -6,7 +6,6 @@ const routes = require( "./routes" );
 const DEV_PORT = 8000;
 
 const server = Hapi.server( {
-	// host: "localhost",
 	port: process.env.PORT || DEV_PORT
 } );
 
