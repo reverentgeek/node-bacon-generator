@@ -15,7 +15,7 @@
 	<div id="app" class="container">
 		<div class="row">
 			<div class="col-sm-auto">
-				<img src="/public/images/makin-bacon.png" style="max-width: 300px; height: auto;" />
+				<a href="/"><img src="/public/images/makin-bacon.png" style="max-width: 300px; height: auto;" /></a>
 			</div>
 			<div class="col-lg-auto mt-3">
 				<span class="align-bottom">
@@ -42,7 +42,8 @@
 				</span>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" v-if="hazBacon">
+			<p>Bacon for {{firstName}} {{lastName}}:</p>
 			<p v-for="p in paragraphs">{{p}}</p>
 		</div>
 	</div>
@@ -57,7 +58,9 @@
 			data: {
 				numberOfPounds: 3,
 				paragraphs: [],
-				copied: false
+				copied: false,
+				firstName: "",
+				lastName: ""
 			},
 			computed: {
 				paragraphText: function() {
@@ -74,7 +77,11 @@
 				makeTheBacon: function() {
 					return axios
 						.get( "/api/bacon/" + this.numberOfPounds )
-						.then( res => ( this.paragraphs = res.data.paragraphs ) )
+						.then( res => {
+							this.paragraphs = res.data.paragraphs;
+							this.firstName = res.data.firstName;
+							this.lastName = res.data.lastName;
+						 } );
 				},
 				baconCopied: function() {
 					this.copied = true;

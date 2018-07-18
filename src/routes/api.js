@@ -12,13 +12,29 @@ module.exports = server => {
 	server.route( {
 		method: "GET",
 		path: "/api/bacon",
-		handler() {
-			return bacon.generateBacon( 1 );
+		config: {
+			auth: "session"
+		},
+		handler( request ) {
+			const model = {
+				total: 1,
+				paragraphs: bacon.generateBacon( 1 )
+			};
+			if ( request.auth.credentials && request.auth.credentials.profile ) {
+				const { firstName, lastName, email } = request.auth.credentials.profile;
+				model.firstName = firstName;
+				model.lastName = lastName;
+				model.email = email;
+			}
+			return model;
 		}
 	} );
 	server.route( {
 		method: "GET",
 		path: "/api/bacon/{paragraphs}",
+		config: {
+			auth: "session"
+		},
 		handler( request ) {
 			const res = joi.validate( request.params, schema );
 			if ( res.error ) {
@@ -27,10 +43,17 @@ module.exports = server => {
 			}
 
 			const paragraphs = bacon.generateBacon( res.value.paragraphs );
-			return {
+			const model = {
 				total: paragraphs.length,
 				paragraphs
 			};
+			if ( request.auth.credentials && request.auth.credentials.profile ) {
+				const { firstName, lastName, email } = request.auth.credentials.profile;
+				model.firstName = firstName;
+				model.lastName = lastName;
+				model.email = email;
+			}
+			return model;
 		}
 	} );
 }

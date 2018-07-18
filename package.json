@@ -4,9 +4,9 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-	"dev": "nodemon -e html,css,txt",
-	"lint": "eslint --fix test/ src/",
-	"start": "node .",
+    "dev": "nodemon -e html,css,txt,js",
+    "lint": "eslint --fix test/ src/",
+    "start": "node .",
     "test": "lab"
   },
   "keywords": [],
@@ -20,9 +20,11 @@
     "node": ">=8"
   },
   "dependencies": {
+    "bell": "^9.3.1",
     "boom": "^7.2.0",
     "fs-extra": "^6.0.1",
     "hapi": "^17.5.2",
+    "hapi-auth-cookie": "^9.0.0",
     "hapi-pino": "^4.0.4",
     "inert": "^5.1.0",
     "joi": "^13.4.0",
