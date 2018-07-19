@@ -26,7 +26,7 @@ Steps to run the web application:
 3. Change to the directory that contains the project files
 4. Run `npm install` to install all the dependencies
 5. Run `npm run dev` to start the development server
-6. Browse to http://localhost:8800
+6. Browse to http://localhost:8000
 
 ### Run the tests
 
