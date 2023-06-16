@@ -1,27 +1,27 @@
 "use strict";
 
-const Hapi = require( "hapi" );
-const plugins = require( "./plugins" );
+const fastify = require( "fastify" );
 const routes = require( "./routes" );
-const DEV_PORT = 8000;
+const dotenv = require( "dotenv" );
+dotenv.config();
 
-const server = Hapi.server( {
-	port: process.env.PORT || DEV_PORT
-} );
+// Create the Fastify server
+const server = fastify( { logger: true } );
 
-async function start() {
+const start = async () => {
 	try {
-		// register plugins
-		await plugins.register( server );
+		const { PORT: port, HOST: host } = process.env;
+		const options = { port, host };
 
-		// register routes
-		await routes.register( server );
+		// Register routes
+		routes.register( server );
 
-		// start the server
-		await server.start();
+		// Run the server!
+		await server.listen( options );
 	} catch ( err ) {
-		process.exit( 1 ); // eslint-disable-line
+		server.log.error( err );
+		process.exit( 1 );
 	}
-}
+};
 
 start();

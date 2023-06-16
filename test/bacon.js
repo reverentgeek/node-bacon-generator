@@ -1,40 +1,47 @@
-const code = require( "code" );
-const Lab = require( "lab" );
+"use strict";
+
+const test = require( "node:test" );
+const assert = require( "node:assert" );
+const { describe, it } = test;
 
 const bacon = require( "../src/bacon" );
 
-const lab = exports.lab = Lab.script();
-const describe = lab.describe;
-const expect = code.expect;
-const it = lab.it;
+test( "synchronous passing test", ( t ) => {
+	// This test passes because it does not throw an exception.
+	assert.strictEqual( 1, 1 );
+} );
 
 describe( "bacon tests", () => {
 	it( "makes the bacon", () => {
 		const pounds = bacon.generateBacon( 2 );
-		expect( pounds.length ).to.equal( 2 );
+		assert.strictEqual( pounds.length, 2 );
 	} );
 
 	it( "defaults to one pound of bacon", () => {
 		const pounds = bacon.generateBacon();
-		expect( pounds.length ).to.equal( 1 );
+		assert.strictEqual( pounds.length, 1 );
 	} );
 
 	it( "generates a random sentence", () => {
 		const sentence = bacon.randomSentence();
 		const words = sentence.split( " " );
-		expect( words.length ).to.be.between( 3, 13 );
+		const isValid = words.length > 3 && words.length < 13;
+		assert.equal( isValid, true );
+
 		const uniqueWords = [];
 		words.forEach( word => {
 			if ( uniqueWords.indexOf( word ) === -1 ) {
 				uniqueWords.push( word );
 			}
 		} );
-		expect( uniqueWords.length ).to.equal( words.length );
+		assert.strictEqual( uniqueWords.length, words.length );
 	} );
 
 	it( "generates a random word", () => {
 		const word = bacon.randomWord();
-		expect( word ).to.exist();
-		expect( word.length ).to.be.above( 1 );
+		const exists = !!word;
+		assert.equal( exists, true );
+		const hasCharacters = word.length > 1;
+		assert.equal( hasCharacters, true );
 	} );
 } );

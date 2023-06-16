@@ -1,38 +1,39 @@
 {
-  "name": "node-bacon-generator",
-  "version": "0.1.0",
-  "description": "",
-  "main": "src/index.js",
-  "scripts": {
-	"dev": "nodemon -e html,css,txt",
-	"lint": "eslint --fix test/ src/",
-	"start": "node .",
-    "test": "lab"
-  },
-  "keywords": [],
-  "author": "David Neal <david@reverentgeek.com> (http://reverentgeek.com)",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/reverentgeek/node-bacon-generator.git"
-  },
-  "license": "MIT",
-  "engines": {
-    "node": ">=8"
-  },
-  "dependencies": {
-    "boom": "^7.2.0",
-    "fs-extra": "^6.0.1",
-    "hapi": "^17.5.2",
-    "hapi-pino": "^4.0.4",
-    "inert": "^5.1.0",
-    "joi": "^13.4.0",
-    "vue-clipboard2": "^0.2.0"
-  },
-  "devDependencies": {
-    "code": "^5.2.0",
-    "eslint": "^5.1.0",
-    "eslint-config-leankit": "^4.5.0",
-    "lab": "^15.5.0",
-    "nodemon": "^1.18.0"
-  }
+	"name": "node-bacon-generator",
+	"version": "0.2.0",
+	"description": "",
+	"main": "src/index.js",
+	"scripts": {
+		"build": "tailwind -i ./src/client/site.css -o ./public/assets/site.css",
+		"dev": "nodemon --watch src --watch public -e js,html,css --exec \"npm run build && npm run start\"",
+		"start": "node src/index.js",
+		"test": "node --test"
+	},
+	"keywords": [
+		"fastify",
+		"bacon",
+		"ipsum",
+		"generator"
+	],
+	"author": "David Neal <david@reverentgeek.com> (https://reverentgeek.com/)",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/reverentgeek/node-bacon-generator.git"
+	},
+	"devDependencies": {
+		"eslint": "^8.42.0",
+		"eslint-config-reverentgeek": "^3.2.2",
+		"nodemon": "^2.0.22",
+		"tailwindcss": "^3.3.2"
+	},
+	"dependencies": {
+		"@fastify/static": "^6.10.2",
+		"@fontsource/montserrat": "^5.0.3",
+		"dotenv": "^16.2.0",
+		"fastify": "^4.18.0",
+		"fs-extra": "^11.1.1",
+		"vue": "^3.3.4",
+		"vue3-clipboard": "^1.0.0"
+	}
 }

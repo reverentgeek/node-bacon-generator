@@ -1,34 +1,22 @@
 "use strict";
 
+const path = require( "path" );
 const api = require( "./api" );
+const staticRoutes = require( "./static" );
 
-const register = async server => {
-	await api( server );
+function register( server ) {
+	api.register( server );
+	staticRoutes.register( server );
 
-	// static files
-	server.route( {
-		method: "GET",
-		path: "/public/{file*}",
-		handler: {
-			directory: {
-				path: "public",
-				redirectToSlash: true,
-				index: true
-			}
-		},
-		config: {
-			auth: false
-		}
+	// Path to views folder
+	const views = path.join( __dirname, "..", "views" );
+
+	// Declare default route
+	server.get( "/", async ( request, reply ) => {
+		return reply.sendFile( "index.html", views );
 	} );
 
-	server.route( {
-		method: "GET",
-		path: "/",
-		handler: ( request, h ) => {
-			return h.file( "./public/index.html" );
-		}
-	} );
-};
+}
 
 module.exports = {
 	register
