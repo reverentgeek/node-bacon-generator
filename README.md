@@ -1,8 +1,6 @@
 # Bacon Ipsum Generator for Node.js!
 
-Check it out! [https://node-bacon-generator.azurewebsites.net/](https://node-bacon-generator.azurewebsites.net/)
-
-This is a demo application for the [Node.js Crash Course](http://bit.ly/node-crash-course)!
+This is a demo application for the [The Illustrated Guide to Node.js](http://bit.ly/node-crash-course)!
 
 Built with love, using:
 
