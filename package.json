@@ -24,7 +24,7 @@
 	"devDependencies": {
 		"eslint": "^8.42.0",
 		"eslint-config-reverentgeek": "^4.0.2",
-		"nodemon": "^3.0.1",
+		"nodemon": "^3.1.7",
 		"tailwindcss": "^3.3.2"
 	},
 	"dependencies": {
