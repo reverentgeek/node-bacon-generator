@@ -1,6 +1,4 @@
-"use strict";
-
-const fs = require( "fs-extra" );
+import fs from "fs-extra";
 
 const wordList = fs.readFileSync( "./src/bacon.txt", { encoding: "UTF-8" } );
 const words = wordList.split( "\n" ).map( b => b.trim() ).filter( b => b !== "" );
@@ -10,7 +8,7 @@ const MAX_SENTENCE_WORDS = 12;
 const MIN_PARAGRAPH_SENTENCES = 3;
 const MAX_PARAGRAPH_SENTENCES = 6;
 
-const randomNumber = ( min, max ) => {
+export const randomNumber = ( min, max ) => {
 	return Math.floor( ( Math.random() * ( max - min + 1 ) ) + min );
 };
 
@@ -20,7 +18,7 @@ const randomItem = ( items, exclude = [] ) => {
 	return filteredItems[ idx ];
 };
 
-const randomWord = exclude => {
+export const randomWord = exclude => {
 	return randomItem( words, exclude );
 };
 
@@ -28,7 +26,7 @@ const randomPunctuation = () => {
 	return randomItem( punctuation );
 };
 
-const randomSentence = () => {
+export const randomSentence = () => {
 	const numberOfWords = randomNumber( MIN_SENTENCE_WORDS, MAX_SENTENCE_WORDS );
 	const randomWords = [];
 	for ( let i = 0; i < numberOfWords; i++ ) {
@@ -47,18 +45,11 @@ const getParagraph = () => {
 	return sentences.join( " " );
 };
 
-const generateBacon = ( paragraphs = 1 ) => {
+export const generateBacon = ( paragraphs = 1 ) => {
 	const numberOfParagraphs = paragraphs > 1 ? paragraphs : 1;
 	const randomParagraphs = [];
 	for ( let i = 0; i < numberOfParagraphs; i++ ) {
 		randomParagraphs.push( getParagraph() );
 	}
 	return randomParagraphs;
-};
-
-module.exports = {
-	randomNumber,
-	randomWord,
-	randomSentence,
-	generateBacon
 };

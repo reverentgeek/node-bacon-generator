@@ -1,12 +1,10 @@
-"use strict";
+import "dotenv/config.js";
+import Fastify from "fastify";
 
-const fastify = require( "fastify" );
-const routes = require( "./routes" );
-const dotenv = require( "dotenv" );
-dotenv.config();
+import { register as routes } from "./routes/index.js";
 
 // Create the Fastify server
-const server = fastify( { logger: true } );
+const server = Fastify( { logger: true } );
 
 const start = async () => {
 	try {
@@ -14,7 +12,7 @@ const start = async () => {
 		const options = { port, host };
 
 		// Register routes
-		routes.register( server );
+		routes( server );
 
 		// Run the server!
 		await server.listen( options );

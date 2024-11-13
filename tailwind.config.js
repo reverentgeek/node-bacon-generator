@@ -1,9 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-"use strict";
+import defaultTheme from "tailwindcss/defaultTheme"; // eslint-disable-line
 
-const defaultTheme = require( "tailwindcss/defaultTheme" );
-
-module.exports = {
+export default {
 	content: [ "src/views/*.html", "public/**/*.js" ],
 	theme: {
 		extend: {

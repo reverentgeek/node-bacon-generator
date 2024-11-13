@@ -1,20 +1,15 @@
-"use strict";
-const bacon = require( "../bacon" );
+import { generateBacon } from "../bacon.js";
 
-function register( server ) {
+export function register( server ) {
 	server.get( "/api/bacon", () => {
-		return bacon.generateBacon( 1 );
+		return generateBacon( 1 );
 	} );
 
-	server.get( "/api/bacon/:paragraphs", ( request, reply ) => {
-		const paragraphs = bacon.generateBacon( request.params.paragraphs );
+	server.get( "/api/bacon/:paragraphs", ( request ) => {
+		const paragraphs = generateBacon( request.params.paragraphs );
 		return {
 			total: paragraphs.length,
 			paragraphs
 		};
 	} );
 }
-
-module.exports = {
-	register
-};

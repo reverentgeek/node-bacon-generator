@@ -1,29 +1,20 @@
-"use strict";
-
-const test = require( "node:test" );
-const assert = require( "node:assert" );
-const { describe, it } = test;
-
-const bacon = require( "../src/bacon" );
-
-test( "synchronous passing test", ( t ) => {
-	// This test passes because it does not throw an exception.
-	assert.strictEqual( 1, 1 );
-} );
+import { describe, it } from "node:test";
+import assert from "node:assert";
+import { generateBacon, randomSentence, randomWord } from "../src/bacon.js";
 
 describe( "bacon tests", () => {
 	it( "makes the bacon", () => {
-		const pounds = bacon.generateBacon( 2 );
+		const pounds = generateBacon( 2 );
 		assert.strictEqual( pounds.length, 2 );
 	} );
 
 	it( "defaults to one pound of bacon", () => {
-		const pounds = bacon.generateBacon();
+		const pounds = generateBacon();
 		assert.strictEqual( pounds.length, 1 );
 	} );
 
 	it( "generates a random sentence", () => {
-		const sentence = bacon.randomSentence();
+		const sentence = randomSentence();
 		const words = sentence.split( " " );
 		const isValid = words.length > 3 && words.length < 13;
 		assert.equal( isValid, true );
@@ -38,7 +29,7 @@ describe( "bacon tests", () => {
 	} );
 
 	it( "generates a random word", () => {
-		const word = bacon.randomWord();
+		const word = randomWord();
 		const exists = !!word;
 		assert.equal( exists, true );
 		const hasCharacters = word.length > 1;
