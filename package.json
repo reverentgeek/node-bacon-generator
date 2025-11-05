@@ -10,6 +10,7 @@
 	"scripts": {
 		"build": "tailwind -i ./src/client/site.css -o ./public/assets/site.css",
 		"dev": "nodemon --watch src --watch public -e js,html,css --exec \"npm run build && npm run start\"",
+		"lint": "eslint --fix ./",
 		"start": "node src/index.js",
 		"test": "node --test"
 	},

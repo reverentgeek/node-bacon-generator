@@ -15,10 +15,10 @@ export const randomNumber = ( min, max ) => {
 const randomItem = ( items, exclude = [] ) => {
 	const filteredItems = items.filter( item => exclude.indexOf( item ) === -1 );
 	const idx = randomNumber( 0, filteredItems.length - 1 );
-	return filteredItems[ idx ];
+	return filteredItems[idx];
 };
 
-export const randomWord = exclude => {
+export const randomWord = ( exclude ) => {
 	return randomItem( words, exclude );
 };
 

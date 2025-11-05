@@ -20,7 +20,7 @@ describe( "bacon tests", () => {
 		assert.equal( isValid, true );
 
 		const uniqueWords = [];
-		words.forEach( word => {
+		words.forEach( ( word ) => {
 			if ( uniqueWords.indexOf( word ) === -1 ) {
 				uniqueWords.push( word );
 			}

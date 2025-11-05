@@ -11,7 +11,7 @@ export default {
 					...defaultTheme.fontFamily.sans
 				]
 			}
-		},
+		}
 	},
-	plugins: [],
+	plugins: []
 };

@@ -10,27 +10,29 @@ const app = createApp( {
 		};
 	},
 	computed: {
-		paragraphText: function() {
+		paragraphText: function () {
 			return this.paragraphs.join( "\n\n" );
 		},
-		hazBacon: function() {
+		hazBacon: function () {
 			return this.paragraphs.length > 0;
 		},
-		poundText: function() {
+		poundText: function () {
 			return this.numberOfPounds == 1 ? "pound" : "pounds";
 		}
 	},
 	methods: {
-		makeTheBacon: async function() {
+		makeTheBacon: async function () {
 			// const response = await fetch( "/api/bacon" );
 			const response = await fetch( "/api/bacon/" + this.numberOfPounds );
 			const data = await response.json();
 			console.log( data );
 			this.paragraphs = data.paragraphs;
 		},
-		baconCopied: function() {
+		baconCopied: function () {
 			this.copied = true;
-			setTimeout( () => { this.copied = false; }, 1500 );
+			setTimeout( () => {
+				this.copied = false;
+			}, 1500 );
 		}
 	},
 	template: `
@@ -59,6 +61,6 @@ const app = createApp( {
 // app.use( VueClipboard );
 app.use( VueClipboard, {
 	autoSetContainer: true,
-	appendToBody: true,
+	appendToBody: true
 } );
 app.mount( "#app" );
