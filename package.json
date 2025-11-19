@@ -28,17 +28,17 @@
 	},
 	"devDependencies": {
 		"eslint": "^9.39.1",
-		"eslint-config-reverentgeek": "^6.3.2",
-		"nodemon": "^3.1.10",
+		"eslint-config-reverentgeek": "^6.3.5",
+		"nodemon": "^3.1.11",
 		"tailwindcss": "^3.4.18"
 	},
 	"dependencies": {
 		"@fastify/static": "^8.3.0",
 		"@fontsource/montserrat": "^5.2.8",
 		"dotenv": "^17.2.3",
-		"fastify": "^5.6.1",
+		"fastify": "^5.6.2",
 		"fs-extra": "^11.3.2",
-		"vue": "^3.5.22",
+		"vue": "^3.5.24",
 		"vue3-clipboard": "^1.0.0"
 	},
 	"packageManager": "pnpm@10.19.0+sha512.c9fc7236e92adf5c8af42fd5bf1612df99c2ceb62f27047032f4720b33f8eacdde311865e91c411f2774f618d82f320808ecb51718bfa82c060c4ba7c76a32b8"
