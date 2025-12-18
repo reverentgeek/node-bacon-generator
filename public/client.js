@@ -51,7 +51,7 @@ const app = createApp( {
 			{{ poundText }} of bacon
 		</div>
 		<button type="button" class="flex-none bg-green-300 rounded rounded-full py-3 px-6 object-center mt-2" @click="makeTheBacon">Make the Bacon!</button>
-		<div class="px-4 my-4" v-for="p in paragraphs">{{ p }}</div>
+		<div class="w-full px-4 my-4" v-for="p in paragraphs">{{ p }}</div>
 		<button v-if="hazBacon && !copied" type="button" class="flex-1 bg-green-300 rounded rounded-full py-3 px-6 object-center mt-2 ml-4" v-clipboard:copy="paragraphText" v-clipboard:success="baconCopied">Copy to the clipboard!</button>
 		<button v-if="copied" type="button" class="flex-1 bg-yellow-300 rounded rounded-full py-3 px-6 object-center mt-2 ml-4" >Copied!</button>
 	</div>
