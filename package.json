@@ -37,7 +37,7 @@
 		"@fastify/static": "^9.0.0",
 		"@fontsource/montserrat": "^5.2.8",
 		"dotenv": "^17.3.1",
-		"fastify": "^5.8.2",
+		"fastify": "^5.8.3",
 		"fs-extra": "^11.3.4",
 		"vue": "^3.5.30",
 		"vue3-clipboard": "^1.0.0"
