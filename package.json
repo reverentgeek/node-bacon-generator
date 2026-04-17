@@ -34,7 +34,7 @@
 		"tailwindcss": "^4.2.2"
 	},
 	"dependencies": {
-		"@fastify/static": "^9.1.0",
+		"@fastify/static": "^9.1.1",
 		"@fontsource/montserrat": "^5.2.8",
 		"dotenv": "^17.4.1",
 		"fastify": "^5.8.5",
