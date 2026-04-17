@@ -36,7 +36,7 @@
 	"dependencies": {
 		"@fastify/static": "^9.1.1",
 		"@fontsource/montserrat": "^5.2.8",
-		"dotenv": "^17.4.1",
+		"dotenv": "^17.4.2",
 		"fastify": "^5.8.5",
 		"fs-extra": "^11.3.4",
 		"vue": "^3.5.32",
