@@ -1,2 +1,6 @@
+allowBuilds:
+  '@parcel/watcher': true
+minimumReleaseAgeExclude:
+  - eslint-config-reverentgeek@7.1.7
 onlyBuiltDependencies:
   - '@parcel/watcher'
