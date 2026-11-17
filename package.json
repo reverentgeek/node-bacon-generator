@@ -27,19 +27,19 @@
 		"url": "https://github.com/reverentgeek/node-bacon-generator.git"
 	},
 	"devDependencies": {
-		"@tailwindcss/cli": "^4.3.3",
-		"eslint": "^10.12.0",
-		"eslint-config-reverentgeek": "^7.1.24",
+		"@tailwindcss/cli": "^4.3.5",
+		"eslint": "^10.15.0",
+		"eslint-config-reverentgeek": "^7.2.2",
 		"nodemon": "^3.1.14",
-		"tailwindcss": "^4.3.3"
+		"tailwindcss": "^4.3.5"
 	},
 	"dependencies": {
-		"@fastify/static": "^10.1.5",
+		"@fastify/static": "^10.1.11",
 		"@fontsource/montserrat": "^5.3.0",
-		"dotenv": "^18.0.5",
-		"fastify": "^5.12.5",
+		"dotenv": "^18.0.10",
+		"fastify": "^5.12.8",
 		"fs-extra": "^11.4.1",
-		"vue": "^3.5.43",
+		"vue": "^3.5.45",
 		"vue3-clipboard": "^1.0.0"
 	},
 	"packageManager": "pnpm@11.22.0",

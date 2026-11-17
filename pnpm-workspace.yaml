@@ -2,5 +2,9 @@ allowBuilds:
   '@parcel/watcher': true
 minimumReleaseAgeExclude:
   - eslint-config-reverentgeek
+  - picomatch@4.0.8
 onlyBuiltDependencies:
   - '@parcel/watcher'
+overrides:
+  minimatch@>=7.0.0 <11.0.1: ^11.0.1
+  picomatch@<=4.0.7: ^4.0.8
